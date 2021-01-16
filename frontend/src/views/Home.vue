@@ -12,6 +12,22 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
+  },
+  async created() {
+    const users = await this.getUsers();
+    console.log(users);
+  },
+  methods: {
+    async getUsers() {
+      const res = await fetch('http://localhost:8081', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      return await res.json();
+    }
   }
 }
 </script>
