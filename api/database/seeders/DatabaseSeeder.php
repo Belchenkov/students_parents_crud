@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\ParentOfStudent;
 use App\Models\Student;
+use App\Models\StudentParent;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +19,6 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         ParentOfStudent::factory(5)->create();
         Student::factory(100)->create();
+        StudentParent::factory(100)->create();
     }
 }

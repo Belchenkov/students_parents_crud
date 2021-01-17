@@ -9,6 +9,8 @@ class ParentOfStudent extends Model
 {
     use HasFactory;
 
+    protected $table = 'parent_of_students';
+
     protected $fillable = [
         'fio',
         'phone'
