@@ -13,7 +13,3 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::apiResource('students', StudentController::class)->only([
-    'index', 'store', 'update', 'destroy'
-]);

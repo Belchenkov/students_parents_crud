@@ -44,52 +44,34 @@
                   <v-row>
                     <v-col
                         cols="12"
-                        sm="6"
-                        md="4"
                     >
                       <v-text-field
                           v-model="editedItem.fio"
-                          label="Dessert fio"
+                          label="ФИО"
                       ></v-text-field>
                     </v-col>
                     <v-col
                         cols="12"
-                        sm="6"
-                        md="4"
                     >
                       <v-text-field
-                          v-model="editedItem.calories"
-                          label="Calories"
+                          v-model="editedItem.phone"
+                          label="Телефон"
                       ></v-text-field>
                     </v-col>
                     <v-col
                         cols="12"
-                        sm="6"
-                        md="4"
                     >
                       <v-text-field
-                          v-model="editedItem.fat"
-                          label="Fat (g)"
+                          v-model="editedItem.email"
+                          label="Email"
                       ></v-text-field>
                     </v-col>
                     <v-col
                         cols="12"
-                        sm="6"
-                        md="4"
                     >
                       <v-text-field
-                          v-model="editedItem.carbs"
-                          label="Carbs (g)"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col
-                        cols="12"
-                        sm="6"
-                        md="4"
-                    >
-                      <v-text-field
-                          v-model="editedItem.protein"
-                          label="Protein (g)"
+                          v-model="editedItem.address"
+                          label="Адрес"
                       ></v-text-field>
                     </v-col>
                   </v-row>
@@ -103,14 +85,14 @@
                     text
                     @click="close"
                 >
-                  Cancel
+                  Отмена
                 </v-btn>
                 <v-btn
                     color="blue darken-1"
                     text
                     @click="save"
                 >
-                  Save
+                  Сохранить
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -205,7 +187,10 @@ export default {
 
   methods: {
     ...mapActions('students', [
-      'loadStudents'
+      'loadStudents',
+      'addStudent',
+      'editStudent',
+      'deleteStudent'
     ]),
     initialize () {
       this.loadStudents();
@@ -219,7 +204,10 @@ export default {
 
     deleteItem (item) {
       const index = this.students.indexOf(item)
-      confirm('Are you sure you want to delete this item?') && this.students.splice(index, 1)
+      if (confirm('Are you sure you want to delete this item?')) {
+        this.deleteStudent(item.id);
+        this.students.splice(index, 1)
+      }
     },
 
     close () {
@@ -232,8 +220,10 @@ export default {
 
     save () {
       if (this.editedIndex > -1) {
+        this.editStudent(this.editedItem);
         Object.assign(this.students[this.editedIndex], this.editedItem)
       } else {
+        this.addStudent(this.editedItem);
         this.students.push(this.editedItem)
       }
       this.close()
