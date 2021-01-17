@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h1>Главная</h1>
+    <h1>Родители</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home',
+  name: 'Parents',
   components: {
   }
 }

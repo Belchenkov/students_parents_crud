@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Http\Controllers\API\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('students', StudentController::class)->only([
+    'index', 'store', 'update', 'destroy'
+]);
+
 Route::get('/', function () {
-    return User::all();
-    //return view('welcome');
+    return view('welcome');
 });
