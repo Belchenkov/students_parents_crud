@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\StudentController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::apiResource('students', StudentController::class)->only([
+    'index', 'store', 'update', 'destroy'
+]);
+
 Route::get('/', function () {
+    //return \App\Models\Student::all();
     return view('welcome');
 });

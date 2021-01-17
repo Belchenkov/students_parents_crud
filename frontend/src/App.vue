@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <app-bar />
-    <v-main>
+    <v-main class="px-16 py-8">
       <router-view></router-view>
     </v-main>
   </v-app>

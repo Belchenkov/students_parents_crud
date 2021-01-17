@@ -25,7 +25,7 @@
                 <v-icon>mdi-home </v-icon>
               </v-list-item-icon>
               <v-list-item-title>
-                Home
+                Главная
               </v-list-item-title>
             </v-list-item>
             <v-list-item to="/students">
@@ -33,7 +33,7 @@
                 <v-icon>mdi-account-supervisor-circle </v-icon>
               </v-list-item-icon>
               <v-list-item-title>
-                Students
+                Ученики
               </v-list-item-title>
             </v-list-item>
 
@@ -41,7 +41,7 @@
               <v-list-item-icon>
                 <v-icon>mdi-account-multiple</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>Parents</v-list-item-title>
+              <v-list-item-title>Родители</v-list-item-title>
             </v-list-item>
           </v-list-item-group>
         </v-list>
