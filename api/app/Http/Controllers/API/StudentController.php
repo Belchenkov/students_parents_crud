@@ -18,7 +18,7 @@ class StudentController extends Controller
      */
     public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
-        return StudentResource::collection(Student::paginate(10));
+        return StudentResource::collection(Student::paginate(100));
     }
 
     /**
